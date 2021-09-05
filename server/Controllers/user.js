@@ -6,7 +6,7 @@ const { verifyToken } = require('../Middleware/auth');
 
 //not sure I need verify token for these 2 functions
 
-router.get('/', verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const users = await User.all
         res.json(users)
