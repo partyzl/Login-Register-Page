@@ -40,7 +40,7 @@ router.post("/login", async(req, res) => {
                 .json({success: true,
                         token: "Bearer "+token});
             }
-            jwt.sign(payload, process.env.SECRET, sendToken);
+            jwt.sign(payload, process.env.SECRET,{ expiresIn: 3600 }, sendToken);
         }else{
             throw new Error("User could not be authenticated");
         }
