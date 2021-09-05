@@ -1,5 +1,3 @@
-const { options } = require("../../server/server");
-
 const url = window.location.hostname.includes('localhost')
 	? 'http://localhost:3000'
 	: 'another url if I want to deploy';
@@ -28,3 +26,14 @@ async function requestLogin(e){
         console.warn(error);
     }
 }
+
+const login = token => {
+    const user  = jwt_decode(token);
+    localStorage.setItem("token", token);
+    localStorage.setItem("username", user.username);
+    localStorage.setItem("password", user.password_digest);
+    window.location.href = "../dash.html"
+}
+
+const loginForm = document.querySelector("#submit-btn")
+loginForm.addEventListener("submit", requestLogin);
