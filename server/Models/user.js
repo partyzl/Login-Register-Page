@@ -10,6 +10,7 @@ class User {
     static get all() {
         return new Promise(async (res, rej) => {
             try {
+                console.log("hello");
                 let result = await db.query(`SELECT * FROM users;`);
                 let users = result.rows.map((r) => new User(r));
                 res(users)
