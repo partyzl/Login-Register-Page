@@ -4,6 +4,8 @@ const User = require("../Models/user");
 
 const { verifyToken } = require('../Middleware/auth');
 
+//not sure I need verify token for these 2 functions
+
 router.get('/', verifyToken, async (req, res) => {
     try{
         const users = await User.all
