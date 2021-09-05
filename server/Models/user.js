@@ -12,7 +12,7 @@ class User {
             try {
                 console.log("hello");
                 let result = await db.query(`SELECT * FROM users;`);
-                let users = result.rows.map((r) => new User(r));
+                let users = result.rows.map(r => new User(r));
                 res(users)
             } catch (error) {
                 rej(`Error retrieving users: ${error}`)
