@@ -32,7 +32,7 @@ const login = token => {
     localStorage.setItem("token", token);
     localStorage.setItem("username", user.username);
     localStorage.setItem("password", user.password_digest);
-    window.location.href = "../dash.html"
+    window.location.href = "./static/dash"
 }
 
 const loginForm = document.querySelector("#submit-btn")
