@@ -29,4 +29,16 @@ router.get('/:username', verifyToken, async (req, res) => {
     }
 })
 
+router.post('/', async (req, res) => {
+    try {
+        const newUser = await User.create(req.body);
+        res.status(201)
+        .json(newUser);
+    } catch (error) {
+        console.error("Could not create user");
+        res.status(422)
+        .json({error})
+    }
+})
+
 module.exports = router;
